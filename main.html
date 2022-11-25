@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="./page.css" />
+    <title>Test</title>
+</head>
+
+<body style="display: flex;">
+
+    <div id="bar" class="mdui-color-teal" style="height:100vh;width:64px">
+    </div>
+
+    <ul id="list" class="mdui-list mdui-p-y-0"
+        style="height:100vh;width:300px;overflow-x:scroll;border-right:1px solid gainsboro;">
+    </ul>
+    <ul id="setmenu" class="mdui-hidden mdui-list mdui-p-y-0"
+        style="height:100vh;width:300px;overflow-x:scroll;border-right:1px solid gainsboro;">
+    </ul>
+
+    <div id="chat" class="mdui-color-grey-200" style="height:100vh;flex-grow:1;display:flex;flex-direction:column;">
+        <div id="box">
+            <div class="mdui-toolbar" style="height:42px">
+                <span id="innertitle" class="mdui-typo-subheading"></span>
+            </div>
+        </div>
+        <div id="init_box" class="page-content" style="width:100%;flex:1"></div>
+        <div id="input_box" class="mdui-color-white" style="width:100%;border-top:1px solid gainsboro;">
+            <div class="mdui-textfield mdui-p-y-0">
+                <textarea id="input" class="mdui-textfield-input mdui-p-l-1" rows="5" placeholder="Message"
+                    style="border: none;"></textarea>
+            </div>
+            <div id="button" class="mdui-toolbar mdui-p-x-1" style="height:48px;">
+                <div class="mdui-toolbar-spacer"></div>
+                <button onclick="sendmsg()" class="mdui-btn mdui-btn-dense mdui-color-teal mdui-ripple">发送</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="setting" class="mdui-hidden mdui-color-grey-200" style="height:100vh;flex-grow:1">
+        <div class="mdui-textfield">
+            <input id="aabb" class="mdui-textfield-input" type="text" placeholder="User Name" />
+            <input id="bbcc" class="mdui-textfield-input" type="text" placeholder="URL"
+                value="http://localhost:5000/talk" />
+        </div>
+        <button onclick="CreatWS()" class="mdui-btn mdui-ripple">button</button>
+    </div>
+
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script src="./page.js"></script>
+</body>
+
+</html>
