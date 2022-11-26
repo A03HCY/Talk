@@ -13,16 +13,30 @@
     <title>Test</title>
 </head>
 
-<body style="display: flex;">
+<body class="mdui-theme-primary-teal mdui-theme-accent-light-blue" style="display:flex;">
 
-    <div id="bar" class="mdui-color-teal" style="height:100vh;width:64px">
+    <div id="bar" class="mdui-color-theme" style="height:100vh;width:64px;display:flex;flex-direction:column;">
+
+        <div id="ico-head" class="mdui-color-orange mdui-ripple" style="height:64px;width:64px;align-self:flex-start;">
+        </div>
+        <div id="ico-chat" onclick="SetPage('chat')" class="mdui-color-blue mdui-ripple"
+            style="height:64px;width:64px;align-self:flex-start;">
+        </div>
+        <div id="ico-create" class="mdui-color-pink mdui-ripple" style="height:64px;width:64px;align-self:flex-start;">
+        </div>
+        <div style="flex-grow: 1;"></div>
+
+        <div id="ico-set" onclick="SetPage('setting')" class="mdui-color-red mdui-ripple"
+            style="height:64px;width:64px;align-self:flex-end;">
+        </div>
+
     </div>
 
     <ul id="list" class="mdui-list mdui-p-y-0"
         style="height:100vh;width:300px;overflow-x:scroll;border-right:1px solid gainsboro;">
     </ul>
     <ul id="setmenu" class="mdui-hidden mdui-list mdui-p-y-0"
-        style="height:100vh;width:300px;overflow-x:scroll;border-right:1px solid gainsboro;">
+        style="height:100vh;width:400px;overflow-x:scroll;border-right:1px solid gainsboro;">
     </ul>
 
     <div id="chat" class="mdui-color-grey-200" style="height:100vh;flex-grow:1;display:flex;flex-direction:column;">
@@ -44,13 +58,28 @@
         </div>
 
     </div>
-    <div id="setting" class="mdui-hidden mdui-color-grey-200" style="height:100vh;flex-grow:1">
-        <div class="mdui-textfield">
-            <input id="aabb" class="mdui-textfield-input" type="text" placeholder="User Name" />
-            <input id="bbcc" class="mdui-textfield-input" type="text" placeholder="URL"
-                value="http://localhost:5000/talk" />
+    <div id="setting" class="mdui-hidden" style="height:100vh;flex-grow:1;overflow-y:scroll;">
+
+        <div class="mdui-container mdui-typo mdui-p-y-2">
+            <div class="mdui-typo-title">Talknet 服务</div>
+            <div class="mdui-textfield">
+                <input class="mdui-textfield-input" type="text" placeholder="接口" />
+                <div class="mdui-textfield-helper">由服务方提供</div>
+            </div>
+            <label class="mdui-checkbox">
+                <input type="checkbox" />
+                <i class="mdui-checkbox-icon"></i>
+                使用 WSS 协议
+            </label>
+            <blockquote>
+                <p>通讯协议需与服务端一致，否则无法建立连接</p>
+            </blockquote>
+            <label class="mdui-checkbox">
+                <input type="checkbox" checked/>
+                <i class="mdui-checkbox-icon"></i>
+                允许音视频通讯
+            </label>
         </div>
-        <button onclick="CreatWS()" class="mdui-btn mdui-ripple">button</button>
     </div>
 
     <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>

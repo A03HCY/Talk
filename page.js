@@ -157,6 +157,4 @@ function CreatWS() {
             $('#input').val('')
         }
     })
-
-
 }
