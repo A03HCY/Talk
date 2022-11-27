@@ -8,7 +8,7 @@ let H = {
     '_me': 'http://q2.qlogo.cn/headimg_dl?dst_uin=3206921401&spec=100'
 }
 
-SetPage('setting')
+SetPage('sign')
 
 String.prototype.nReplace = function (f, e) {
     let reg = new RegExp(f, "g");
@@ -25,16 +25,25 @@ function Randomcode(length) {
 function SetPage(to) {
     if ((to == 'chat') && (P != 'chat')) {
         P = 'chat'
-        $('#chat').toggleClass('mdui-hidden')
-        $('#setting').toggleClass('mdui-hidden')
-        $('#list').toggleClass('mdui-hidden')
-        $('#setmenu').toggleClass('mdui-hidden')
+        $('#chat').removeClass('mdui-hidden')
+        $('#list').removeClass('mdui-hidden')
+        $('#setting').addClass('mdui-hidden')
+        $('#setmenu').addClass('mdui-hidden')
+        $('#signin').addClass('mdui-hidden')
     } else if ((to == 'setting') && (P != 'setting')) {
         P = 'setting'
-        $('#chat').toggleClass('mdui-hidden')
-        $('#setting').toggleClass('mdui-hidden')
-        $('#list').toggleClass('mdui-hidden')
-        $('#setmenu').toggleClass('mdui-hidden')
+        $('#chat').addClass('mdui-hidden')
+        $('#list').addClass('mdui-hidden')
+        $('#setting').removeClass('mdui-hidden')
+        $('#setmenu').removeClass('mdui-hidden')
+        $('#signin').addClass('mdui-hidden')
+    } else if ((to == 'sign') && (P != 'sign')) {
+        P = 'sign'
+        $('#chat').addClass('mdui-hidden')
+        $('#list').addClass('mdui-hidden')
+        $('#setting').addClass('mdui-hidden')
+        $('#setmenu').addClass('mdui-hidden')
+        $('#signin').removeClass('mdui-hidden')
     }
 }
 

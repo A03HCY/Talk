@@ -9,8 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
-    <link rel="stylesheet" href="./page.css" />
-    <title>Test</title>
+    <link rel="stylesheet" href="./talknet.css" />
+    <title>Talknet</title>
 </head>
 
 <body class="mdui-theme-primary-teal mdui-theme-accent-light-blue" style="display:flex;">
@@ -75,16 +75,50 @@
                 <p>通讯协议需与服务端一致，否则无法建立连接</p>
             </blockquote>
             <label class="mdui-checkbox">
-                <input type="checkbox" checked/>
+                <input type="checkbox" checked />
                 <i class="mdui-checkbox-icon"></i>
                 允许音视频通讯
             </label>
         </div>
     </div>
 
+    <div id="signin" class="mdui-hidden mdui-container-fluid" style="flex-wrap:1;">
+
+        <div class="mdui-card mdui-center" style="width:550px;margin-top:15vh;">
+            <div class="mdui-card-primary">
+                <div class="mdui-typo-title mdui-text-center mdui-m-b-1">Talknet</div>
+                <div class="mdui-typo">
+                    <hr />
+                </div>
+                <div class="mdui-card-actions mdui-p-x-2 mdui-m-t-2">
+                    <div class="mdui-textfield">
+                        <input class="mdui-textfield-input" type="text" placeholder="接口" />
+                        <div class="mdui-textfield-helper">由服务方提供</div>
+                    </div>
+                    <div class="mdui-textfield">
+                        <input class="mdui-textfield-input" type="text" placeholder="账号" />
+                    </div>
+                    <div class="mdui-textfield">
+                        <input class="mdui-textfield-input" type="password" placeholder="密钥" />
+                    </div>
+                    <label class="mdui-checkbox mdui-m-t-1">
+                        <input type="checkbox" checked />
+                        <i class="mdui-checkbox-icon"></i>
+                        保存接口数据
+                    </label>
+                    <button
+                        class="mdui-btn mdui-color-light-blue mdui-text-color-white mdui-ripple mdui-m-x-0 mdui-float-right"
+                        style="margin-top:42px;">登录</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
-    <script src="./page.js"></script>
+    <script src="./desktop.js"></script>
 </body>
 
 </html>
