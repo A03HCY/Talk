@@ -47,6 +47,12 @@ function SetPage(to) {
     }
 }
 
+function Unlock() {
+    $('#ico-chat').removeClass('mdui-hidden')
+    $('#ico-create').removeClass('mdui-hidden')
+    $('#ico-set').removeClass('mdui-hidden')
+}
+
 function Update(uid, info) {
     if (C.includes(uid) == false) return;
     let now = $('#' + uid + '-ls').find('.mdui-list-item-text')
