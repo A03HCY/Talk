@@ -11,6 +11,9 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chat.sqlite'
     register_cmd(app)
     register_extensions(app)
+
+    app.register_blueprint(api)
+
     return app
 
 def register_cmd(app: Flask):
