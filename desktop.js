@@ -193,7 +193,7 @@ function authService(url, sec, err) {
     $.ajax({
         method: 'GET',
         url: url + '/api/info',
-        dataType: 'text',
+        dataType: 'json',
         success: (data, text, xhr) => {
             alert(data)
             let talknet = data['service']['talknet']
