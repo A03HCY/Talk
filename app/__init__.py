@@ -1,5 +1,6 @@
 from flask          import Flask
 from flask_socketio import SocketIO
+from flask_cors     import CORS, cross_origin
 from app.extension  import *
 from app.models     import *
 
@@ -13,6 +14,8 @@ def create_app():
     register_extensions(app)
 
     app.register_blueprint(api)
+
+    cors = CORS(app)
 
     return app
 
