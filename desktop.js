@@ -130,15 +130,92 @@ function Keep(uid) {
     now.scrollTop = height;
 }
 
+function Checkhost() {
+    let host = $('#host').val()
+    let save = document.getElementById("save").checked
+    if (host == '') return
 
-function CreatWS() {
-    let namespace = '/talk'
-    let linking = $('#bbcc').val()
+    // ui disabling
+    $('#f-pro').removeClass('mdui-invisible')
+    $('#next').attr('disabled', '')
+    $('#host').attr('disabled', '')
+    $('#save').attr('disabled', '')
+
+    authService(
+        host,
+        () => {
+            if (window.authdata['host'] && window.authdata['talknet']) {
+                $('#f-card').addClass('mdui-hidden')
+                $('#s-card').removeClass('mdui-hidden')
+                mdui.snackbar({
+                    message: '连接成功',
+                    position: 'right-bottom',
+                });
+            } else {
+                $('#f-pro').addClass('mdui-invisible')
+                $('#next').removeAttr('disabled')
+                $('#host').removeAttr('disabled')
+                $('#save').removeAttr('disabled')
+                mdui.snackbar({
+                    message: '接口不存在',
+                    position: 'right-bottom',
+                });
+            }
+        },
+        () => {
+            $('#f-pro').addClass('mdui-invisible')
+            $('#next').removeAttr('disabled')
+            $('#host').removeAttr('disabled')
+            $('#save').removeAttr('disabled')
+            mdui.snackbar({
+                message: '接口不存在',
+                position: 'right-bottom',
+            });
+        }
+    )
+}
+
+function authService(url, sec, err) {
+    $.ajax({
+        method: 'GET',
+        url: url + '/api/info',
+        dataType: 'json',
+        success: (data, text, xhr) => {
+            console.log(data)
+            let talknet = data['services']['talknet']
+            window.authdata = {
+                'host': url,
+                'talknet': talknet
+            }
+            if (sec) sec();
+        },
+        error: (e, xhr) => {
+            console.log('Error')
+            if (err) err();
+        }
+    })
+}
+
+function Signin() {
+    let name = $('#user').val().nReplace(' ', '')
+    let pswd = $('#pswd').val().nReplace(' ', '')
+    if ((name == '') || (pswd == '')) {
+        mdui.snackbar({
+            message: '无效的信息',
+            position: 'right-bottom',
+        });
+    }
+    CreatWS(name, pswd)
+}
+
+function CreatWS(name, pswd) {
+    let namespace = window.authdata['talknet']
+    let linking = window.authdata['host'] + namespace
 
     let socket = io.connect(linking, {
         'auth': {
-            'name': $('#aabb').val(),
-            'pswd': '123'
+            'name': name,
+            'pswd': pswd
         }
     })
 
@@ -158,7 +235,15 @@ function CreatWS() {
         Addrecv(data['uid'] + '', data['context'])
     })
 
+    socket.on('connect_error', (error) => {
+        mdui.snackbar({
+            message: '登录被拒绝',
+            position: 'right-bottom',
+        });
+    });
+
     socket.on('connect', function () {
+        Unlock()
         socket.emit('list')
         SetPage('chat')
         sendmsg = function () {
@@ -170,42 +255,6 @@ function CreatWS() {
             })
             Addsend(A, text)
             $('#input').val('')
-        }
-    })
-}
-
-function Checkhost() {
-    let host = $('#host').val()
-    let save = document.getElementById ("save").checked
-    if (host == '') return
-    authService(
-        host, 
-        () => {
-
-        },
-        () => {
-
-        }
-    )
-}
-
-function authService(url, sec, err) {
-    $.ajax({
-        method: 'GET',
-        url: url + '/api/info',
-        dataType: 'json',
-        success: (data, text, xhr) => {
-            alert(data)
-            let talknet = data['service']['talknet']
-            window.authdata = {
-                'host':url,
-                'talknet':talknet
-            }
-            if (sec) sec();
-        },
-        error: (e, xhr) => {
-            alert('Error')
-            if (err) err();
         }
     })
 }
