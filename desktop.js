@@ -173,3 +173,39 @@ function CreatWS() {
         }
     })
 }
+
+function Checkhost() {
+    let host = $('#host').val()
+    let save = document.getElementById ("save").checked
+    if (host == '') return
+    authService(
+        host, 
+        () => {
+
+        },
+        () => {
+
+        }
+    )
+}
+
+function authService(url, sec, err) {
+    $.ajax({
+        method: 'GET',
+        url: url + '/api/info',
+        dataType: 'text',
+        success: (data, text, xhr) => {
+            alert(data)
+            let talknet = data['service']['talknet']
+            window.authdata = {
+                'host':url,
+                'talknet':talknet
+            }
+            if (sec) sec();
+        },
+        error: (e, xhr) => {
+            alert('Error')
+            if (err) err();
+        }
+    })
+}

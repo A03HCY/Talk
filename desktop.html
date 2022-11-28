@@ -84,31 +84,49 @@
 
     <div id="signin" class="mdui-hidden mdui-container-fluid" style="flex-wrap:1;">
 
-        <div class="mdui-card mdui-center" style="width:550px;margin-top:15vh;">
+        <div id="f-card" class="mdui-card mdui-center" style="width:550px;margin-top:25vh;">
+            <div id="f-pro" class="mdui-progress mdui-invisible">
+                <div class="mdui-progress-indeterminate"></div>
+              </div>
             <div class="mdui-card-primary">
                 <div class="mdui-typo-title mdui-text-center mdui-m-b-1">Talknet</div>
-                <div class="mdui-typo">
+                <div class="mdui-typo mdui-m-t-2">
                     <hr />
                 </div>
-                <div class="mdui-card-actions mdui-p-x-2 mdui-m-t-2">
+                <div class="mdui-card-actions mdui-p-x-2 mdui-m-t-1">
                     <div class="mdui-textfield">
-                        <input class="mdui-textfield-input" type="text" placeholder="接口" />
+                        <input id="host" class="mdui-textfield-input" type="text" placeholder="接口" />
                         <div class="mdui-textfield-helper">由服务方提供</div>
                     </div>
-                    <div class="mdui-textfield">
-                        <input class="mdui-textfield-input" type="text" placeholder="账号" />
-                    </div>
-                    <div class="mdui-textfield">
-                        <input class="mdui-textfield-input" type="password" placeholder="密钥" />
-                    </div>
                     <label class="mdui-checkbox mdui-m-t-1">
-                        <input type="checkbox" checked />
+                        <input id="save" type="checkbox" value="sure" checked />
                         <i class="mdui-checkbox-icon"></i>
                         保存接口数据
                     </label>
-                    <button
+                    <button id="next" onclick="Checkhost()"
                         class="mdui-btn mdui-color-light-blue mdui-text-color-white mdui-ripple mdui-m-x-0 mdui-float-right"
-                        style="margin-top:42px;">登录</button>
+                        style="margin-top:42px;">继续</button>
+                </div>
+            </div>
+        </div>
+        <div id="s-card" class="mdui-hidden mdui-card mdui-center" style="width:550px;margin-top:20vh;">
+            <div id="s-pro" class="mdui-progress mdui-invisible">
+                <div class="mdui-progress-indeterminate"></div>
+              </div>
+            <div class="mdui-card-primary">
+                <div class="mdui-typo-title mdui-text-center mdui-m-b-1">Talknet</div>
+                <div class="mdui-typo mdui-m-t-2">
+                    <hr />
+                </div>
+                <div class="mdui-card-actions mdui-p-x-2 mdui-m-t-1">
+                    <div class="mdui-textfield">
+                        <input id="user" class="mdui-textfield-input" type="text" placeholder="账号" />
+                    </div>
+                    <div class="mdui-textfield">
+                        <input id="pswd" class="mdui-textfield-input" type="password" placeholder="密钥" />
+                    </div>
+                    <button id="already"
+                        class="mdui-btn mdui-color-light-blue mdui-text-color-white mdui-ripple mdui-m-x-0 mdui-float-right mdui-m-t-2">登录</button>
                 </div>
 
             </div>
