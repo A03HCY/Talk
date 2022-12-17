@@ -1,7 +1,7 @@
 let $ = mdui.$;
 let P = 'chat' // current page
-let C = []   // chat list
-let A = null // current uid
+let C = []     // chat list
+let A = null   // current uid
 let T = {}     // temp of inputs
 
 let H = {
