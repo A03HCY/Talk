@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="./talknet.css" />
+    <title>Talknet</title>
+</head>
+
+<body class="mdui-theme-primary-teal mdui-theme-accent-light-blue mdui-bottom-nav-fixed">
+
+    <div id="signin" class="mdui-hidden mdui-card mdui-center mdui-shadow-0" style="width:550px;margin-top:15vh;">
+        <div class="mdui-card-primary">
+            <div class="mdui-typo-title mdui-text-center mdui-m-b-1">欢迎来到 Talknet</div>
+            <div class="mdui-card-actions mdui-p-x-2 mdui-m-t-2">
+                <div class="mdui-textfield">
+                    <input class="mdui-textfield-input" type="text" placeholder="接口" />
+                    <div class="mdui-textfield-helper">由服务方提供</div>
+                </div>
+                <div class="mdui-textfield">
+                    <input class="mdui-textfield-input" type="text" placeholder="账号" />
+                </div>
+                <div class="mdui-textfield">
+                    <input class="mdui-textfield-input" type="password" placeholder="密钥" />
+                </div>
+                <label class="mdui-checkbox mdui-m-t-1">
+                    <input type="checkbox" checked />
+                    <i class="mdui-checkbox-icon"></i>
+                    保存接口数据
+                </label>
+                <button
+                    class="mdui-btn mdui-color-light-blue mdui-text-color-white mdui-ripple mdui-m-x-0 mdui-float-right"
+                    style="margin-top:42px;">登录</button>
+            </div>
+        </div>
+    </div>
+    <div id="chat">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+              <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <span class="mdui-typo-title">Title</span>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+              <i class="mdui-icon material-icons">search</i>
+            </a>
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+              <i class="mdui-icon material-icons">add</i>
+            </a>
+          </div>
+    </div>
+
+    <div id="bar" class="mdui-bottom-nav" mdui-tab>
+        <a class="mdui-ripple mdui-bottom-nav-active">
+            <i class="mdui-icon material-icons">chat</i>
+            <label>聊天</label>
+        </a>
+        <a class="mdui-ripple">
+            <i class="mdui-icon material-icons">people</i>
+            <label>好友</label>
+        </a>
+        <a class="mdui-ripple">
+            <i class="mdui-icon material-icons">account_circle</i>
+            <label>我的</label>
+        </a>
+    </div>
+
+    <script src="./active.js"></script>
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script src="./phone.js"></script>
+</body>
+
+</html>
